@@ -38,6 +38,16 @@ $routes->get('/admin', 'Admin\Home::index', ['filter' => 'auth']);
 $routes->get('/guru', 'Guru\Home::index', ['filter' => 'auth']);
 $routes->get('/identitas-sekolah', 'Admin\Pengaturan\IdentitasSekolah::index');
 $routes->get('/identitas-sekolah/(:segment)', 'Admin\Pengaturan\IdentitasSekolah::$1');
+$routes->group('admin', ['filter' => 'auth'], function($routes){
+    $routes->group('siswa', ['filter' => 'auth'], function ($routes) {
+        $routes->add('/', 'Admin\Siswa::index');
+    });
+    $routes->get('news', 'NewsAdmin::index');
+    $routes->get('news/(:segment)/preview', 'NewsAdmin::preview/$1');
+    $routes->add('news/new', 'NewsAdmin::create');
+    $routes->add('news/(:segment)/edit', 'NewsAdmin::edit/$1');
+    $routes->get('news/(:segment)/delete', 'NewsAdmin::delete/$1');
+});
 
 /*
  * --------------------------------------------------------------------

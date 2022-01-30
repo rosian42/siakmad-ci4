@@ -75,11 +75,10 @@
 
                 <li class="nav-header">DATA</li>
                 <li class="nav-item">
-                    <a href="javascript:void(0)" class="nav-link">
+                    <a href="/admin/siswa" class="nav-link">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
                             Siswa
-                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                 </li>
